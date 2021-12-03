@@ -1,22 +1,20 @@
-function Calculator() {
-  this.total = 0;
-}
-
-Calculator.prototype.add = function(number) {
-  return this.total += number;
-};
-Calculator.prototype.subtract = function(number) {
-  return this.total -= number;
-
-};
-Calculator.prototype.multiply = function(number) {
-  return this.total *= number;
-
-};
-Calculator.prototype.divide = function(number) {
-  if (number === 0) {
-    throw new Error('Cannot divide by zero');
+class Calculator {
+  constructor() {
+      this.total = 0;
   }
-  return this.total /= number;
-
-};
+  add(number) {
+    return this.total += number;
+  }
+  subtract(number) {
+    return this.total -= number;
+  }
+  multiply(number) {
+    return this.total *= number;
+  }
+  divide(number) {
+    if (number === 0) {
+      throw new Error('Cannot divide by zero');
+    }
+    return this.total /= number;
+  }
+}
