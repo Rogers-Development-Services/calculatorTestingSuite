@@ -1,19 +1,18 @@
 describe("calculator.js", function () {
+  let calculator;
+  let calculator2;
 
+  beforeEach(function () {
+    /* Anything inside this block executes before each spect (it) inside this describe */
+    calculator = new Calculator();
+    calculator2 = new Calculator()
+  })
+
+  afterEach(function () {
+    /* Anything inside this block executes after each spec (it) inside this describe. */
+  })
   describe("Calculator Class", function () {
-    let calculator;
-    let calculator2;
 
-    beforeEach(function() {
-      /* Anything inside this block executes before each spect (it) inside this describe */
-      calculator = new Calculator();
-      calculator2 = new Calculator()
-    })
-
-    afterEach(function() {
-      /* Anything inside this block executes after each spec (it) inside this describe. */
-    })
-    
     it("should initialize the total", function () {
       expect(calculator.total).toBe(0);
       expect(calculator.total).toBeFalsy();
@@ -95,7 +94,7 @@ describe("calculator.js", function () {
       expect(calculator.total).toBe(200);
     })
   });
-  
+
   describe("divide()", function () {
     it("should divide total by number", function () {
       const calculator = new Calculator();
@@ -118,4 +117,15 @@ describe("calculator.js", function () {
       ).toThrowError(Error, "Cannot divide by zero");
     })
   });
+
+  describe("get version", function () {
+    it("fetches version from external source", async function () {
+      spyOn(window, 'fetch').and.returnValue(Promise.resolve(
+        new Response('{ "version": "0.1"}')
+      ));
+
+      const version = await calculator.version;
+      expect(version).toBe("0.1")
+    })
+  })
 })

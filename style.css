@@ -31,3 +31,9 @@
   color: #000;
   text-align: center;
 }
+
+.version {
+  color: white;
+  margin-top: 10px;
+  text-align: center;
+}
