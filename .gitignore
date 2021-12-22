@@ -1,2 +1,5 @@
-node_modules/
-coverage/
+#testing
+coverage
+
+#dependencies
+node_modules
