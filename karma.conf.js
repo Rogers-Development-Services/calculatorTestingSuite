@@ -20,7 +20,7 @@ module.exports = function (config) {
     browsers: ['ChromeHeadless'],
     singleRun: true,
     coverageReporter: {
-      dir: 'coverage/',
+      dir: 'coverage',
       subdir: 'html',
       reporter: [
         { type: 'html', subdir: 'html' }
